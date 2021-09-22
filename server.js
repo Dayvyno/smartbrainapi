@@ -27,7 +27,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 app.get("/", (req, res)=>{
-  res.send('It is working')
+  res.send('App has been confirmed working')
 })
 
 app.post("/signin", handleSignIn(db, bcrypt));
