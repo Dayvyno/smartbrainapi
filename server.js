@@ -18,13 +18,12 @@ import { handleApiCall, imageHandler } from './controllers/image.js';
 const app = express()
 app.use(cors())
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const db= knex({
   client: 'pg',
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: true
   // connection: {
   //   host : '127.0.0.1',
   //   user : 'postgres',
