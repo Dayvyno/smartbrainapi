@@ -6,22 +6,29 @@ import {handleRegister} from './controllers/register.js';
 import { handleSignIn } from './controllers/signin.js';
 import { profileHandler } from './controllers/profile.js';
 import { handleApiCall, imageHandler } from './controllers/image.js';
+// import { Client } from 'pg';
+
+// const client = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: true
+// });
 
 
 
 const app = express()
 app.use(cors())
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 
 const db= knex({
   client: 'pg',
-  connection: {
-    connectString : process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    }
-  }
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+  // connection: {
+  //   host : '127.0.0.1',
+  //   user : 'postgres',
+  //   password : 'Micheal823',
+  //   database : 'smartbrain'
+  // }
 });
 
 app.use(express.urlencoded({extended:false}))

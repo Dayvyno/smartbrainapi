@@ -23,5 +23,5 @@ export const handleSignIn = (db, bcrypt)=>(req, res)=>{
         res.status(400).json('Invalid email or password')
       }
     })
-    .catch(err=>res.status(400).json('Invalid email or password'))
+    .catch(err=>res.status(400).json('Email or Password not yet registered'))
 }
