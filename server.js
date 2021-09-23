@@ -6,6 +6,7 @@ import {handleRegister} from './controllers/register.js';
 import { handleSignIn } from './controllers/signin.js';
 import { profileHandler } from './controllers/profile.js';
 import { handleApiCall, imageHandler } from './controllers/image.js';
+import 'pg';
 // import { Client } from 'pg';
 
 // const client = new Client({
@@ -18,7 +19,7 @@ import { handleApiCall, imageHandler } from './controllers/image.js';
 const app = express()
 app.use(cors())
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const db= knex({
   client: 'pg',
